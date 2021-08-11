@@ -1,0 +1,37 @@
+package com.orangehrm_hybridframework5.pageObject;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import junit.framework.Assert;
+
+public class DashboardPage {
+	
+	WebDriver driver;
+	
+	@FindBy(xpath="//*[@id=\"welcome\"]")
+	WebElement welcomeLink;
+	
+	@FindBy(xpath="//a[contains(text(),'Logout')]")
+	WebElement logoutLink;
+	
+	public DashboardPage(WebDriver ldriver) {
+		this.driver=ldriver;
+		PageFactory.initElements(driver, this);
+	}
+	public void clickOnLogoutLink() {
+		welcomeLink.click();
+		logoutLink.click();
+		if(driver.getPageSource().contains("LOGIN Panel")) {
+			Assert.assertTrue(true);
+		}
+		else {
+			Assert.assertTrue("Logout Failed", false);
+		}
+		
+		
+	}
+
+}

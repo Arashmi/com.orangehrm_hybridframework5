@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <parameter name="url" value="https://opensource-demo.orangehrmlive.com/"/>
+  <parameter name="Browser" value="Firefox"/>
+  <test name="Test">
+    <parameter name="url" value="https://opensource-demo.orangehrmlive.com/"/>
+    <parameter name="Browser" value="Firefox"/>
+    <classes>
+      <class name="com.orangehrm_hybridframework5.testCase.Login_TC001"/>
+      <class name="com.orangehrm_hybridframework5.testCase.Dashboard_TC001"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="Test(failed)">
+    <parameter name="url" value="https://opensource-demo.orangehrmlive.com/"/>
+    <parameter name="Browser" value="Firefox"/>
+    <classes>
+      <class name="com.orangehrm_hybridframework5.testCase.Login_TC001">
+        <methods>
+          <include name="stUP"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.orangehrm_hybridframework5.testCase.Login_TC001 -->
+      <class name="com.orangehrm_hybridframework5.testCase.Dashboard_TC001">
+        <methods>
+          <include name="logoutTC_001"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.orangehrm_hybridframework5.testCase.Dashboard_TC001 -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
